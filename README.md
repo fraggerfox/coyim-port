@@ -5,6 +5,8 @@ FreeBSD Ports script for CoyIM.
 
 You can find CoyIM [here][1]
 
+NOTE: This port is not yet available in the FreeBSD Ports tree.
+
 Installation
 ------------
 
