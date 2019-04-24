@@ -6,7 +6,7 @@ DISTVERSION=	0.3.11
 CATEGORIES=	net-im
 
 MAINTAINER=	santhosh.raju@gmail.com
-COMMENT=	Safe and secure chat client
+COMMENT=	A safe and secure by default chat client
 
 LICENSE=	GPLv3
 LICENSE_FILE=	${WRKSRC}/LICENSE
