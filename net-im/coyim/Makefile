@@ -5,7 +5,7 @@ DISTVERSIONPREFIX=	v
 DISTVERSION=	0.3.11
 CATEGORIES=	net-im
 
-MAINTAINER=	santhosh.raju@gmail.com
+MAINTAINER=	support@coy.im
 COMMENT=	Safe and secure by default chat client
 
 LICENSE=	GPLv3
