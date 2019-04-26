@@ -1,4 +1,4 @@
-# $FreeBSD$
+# $FreeBSD: head/net-im/coyim/Makefile 500099 2019-04-26 11:12:43Z philip $
 
 PORTNAME=	coyim
 DISTVERSIONPREFIX=	v
