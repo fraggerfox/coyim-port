@@ -1,11 +1,9 @@
 coyim-port
 ==========
 
-FreeBSD Ports script for CoyIM.
+FreeBSD [Ports][5] script for CoyIM.
 
 You can find CoyIM [here][1]
-
-NOTE: This port is not yet available in the FreeBSD Ports tree.
 
 Installation
 ------------
@@ -45,3 +43,4 @@ BSD 2-clause. See LICENSE.
 [2]: https://github.com/coyim/coyim
 [3]: https://github.com/orgs/coyim/people
 [4]: https://autonomia.digital/
+[5]: https://www.freshports.org/net-im/coyim
