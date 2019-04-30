@@ -33,6 +33,7 @@ Credits
   testing out / fixing the port.
 * Thanks to `@claucece` for improving the documentation and providing a proper
   `MAINTAINER` mail.
+* Thanks to `@rarguello` for minor bug fixes.  
 * This work has been partially sponsored by [CAD][4]
 
 License
