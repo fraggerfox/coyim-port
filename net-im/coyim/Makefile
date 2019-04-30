@@ -1,11 +1,12 @@
-# $FreeBSD: head/net-im/coyim/Makefile 500099 2019-04-26 11:12:43Z philip $
+# $FreeBSD: head/net-im/coyim/Makefile 500469 2019-04-30 09:09:07Z swills $
 
 PORTNAME=	coyim
 DISTVERSIONPREFIX=	v
 DISTVERSION=	0.3.11
+PORTREVISION=	1
 CATEGORIES=	net-im
 
-MAINTAINER=	support@coy.im
+MAINTAINER=	santhosh.raju@gmail.com
 COMMENT=	Safe and secure by default chat client
 
 LICENSE=	GPLv3
