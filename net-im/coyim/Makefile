@@ -16,9 +16,14 @@ BUILD_DEPENDS=	go:lang/go
 LIB_DEPENDS=	libfontconfig.so:x11-fonts/fontconfig \
 		libfreetype.so:print/freetype2
 
-USES=		gnome pkgconfig
+USES=		gnome pkgconfig shebangfix
 
 USE_GNOME=	atk cairo gdkpixbuf2 glib20 gtk30 pango
+
+SHEBANG_LANG=   sh
+sh_OLD_CMD=     "/usr/bin/env bash"
+sh_CMD=         /bin/sh
+SHEBANG_FILES=  gen_version_file.sh
 
 OPTIONS_DEFINE=	NLS
 OPTIONS_SUB=	yes
@@ -44,10 +49,6 @@ COYIM_ICON_SRC=		${WRKSRC}/build/mac-bundle/coy.iconset/icon_32x32@2x.png
 COYIM_DESKTOP=		${WRKSRC}/build/coyim.desktop
 
 INSTALLATION_DIRS+=	share/applications share/pixmaps
-
-post-extract:
-	@${REINPLACE_CMD} -e 's|\#!/usr/bin/env bash|\#!/bin/sh|' \
-		${WRKSRC}/gen_version_file.sh
 
 do-build:
 	cd ${WRKSRC}/${GH_SUBDIR} && \
