@@ -3,7 +3,7 @@
 PORTNAME=	coyim
 DISTVERSIONPREFIX=	v
 DISTVERSION=	0.3.11
-PORTREVISION=	1
+PORTREVISION=	2
 CATEGORIES=	net-im
 
 MAINTAINER=	santhosh.raju@gmail.com
@@ -45,8 +45,13 @@ COYIM_DESKTOP=		${WRKSRC}/build/coyim.desktop
 
 INSTALLATION_DIRS+=	share/applications share/pixmaps
 
+post-extract:
+	@${REINPLACE_CMD} -e 's|\#!/usr/bin/env bash|\#!/bin/sh|' \
+		${WRKSRC}/gen_version_file.sh
+
 do-build:
 	cd ${WRKSRC}/${GH_SUBDIR} && \
+		./gen_version_file.sh ${DISTVERSIONPREFIX}${DISTVERSION} && \
 		${SETENV} ${MAKE_ENV} GOPATH=${WRKSRC} \
 		go build -tags ${GTK_BUILD_TAG} -o ${PORTNAME}
 
