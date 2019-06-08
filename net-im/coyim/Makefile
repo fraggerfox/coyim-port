@@ -1,4 +1,4 @@
-# $FreeBSD: head/net-im/coyim/Makefile 500469 2019-04-30 09:09:07Z swills $
+# $FreeBSD: head/net-im/coyim/Makefile 503688 2019-06-08 00:51:35Z swills $
 
 PORTNAME=	coyim
 DISTVERSIONPREFIX=	v
@@ -20,10 +20,10 @@ USES=		gnome pkgconfig shebangfix
 
 USE_GNOME=	atk cairo gdkpixbuf2 glib20 gtk30 pango
 
-SHEBANG_LANG=   sh
-sh_OLD_CMD=     "/usr/bin/env bash"
-sh_CMD=         /bin/sh
-SHEBANG_FILES=  gen_version_file.sh
+SHEBANG_LANG=	sh
+sh_OLD_CMD=	"/usr/bin/env bash"
+sh_CMD=		/bin/sh
+SHEBANG_FILES=	gen_version_file.sh
 
 OPTIONS_DEFINE=	NLS
 OPTIONS_SUB=	yes
