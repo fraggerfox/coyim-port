@@ -50,7 +50,7 @@ INSTALLATION_DIRS+=	share/applications share/pixmaps
 
 do-build:
 	cd ${WRKSRC}/${GH_SUBDIR} && \
-		./gen_version_file.sh ${DISTVERSIONPREFIX}${DISTVERSION} && \
+		${SH} ./gen_version_file.sh ${DISTVERSIONPREFIX}${DISTVERSION} && \
 		${SETENV} ${MAKE_ENV} GOPATH=${WRKSRC} \
 		go build -tags ${GTK_BUILD_TAG} -o ${PORTNAME}
 
