@@ -19,7 +19,6 @@ USES=		gnome go pkgconfig shebangfix
 
 USE_GNOME=	atk cairo gdkpixbuf2 glib20 gtk30 pango
 
-SHEBANG_LANG=	sh
 sh_OLD_CMD=	"/usr/bin/env bash"
 sh_CMD=		${SH}
 SHEBANG_FILES=	gen_version_file.sh
