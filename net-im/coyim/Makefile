@@ -19,15 +19,15 @@ USES=		gnome go pkgconfig shebangfix
 
 USE_GNOME=	atk cairo gdkpixbuf2 glib20 gtk30 pango
 
-SHEBANG_LANG=   sh
-sh_OLD_CMD=     "/usr/bin/env bash"
-sh_CMD=         /bin/sh
-SHEBANG_FILES=  gen_version_file.sh
+SHEBANG_LANG=	sh
+sh_OLD_CMD=	"/usr/bin/env bash"
+sh_CMD=		${SH}
+SHEBANG_FILES=	gen_version_file.sh
 
 OPTIONS_DEFINE=	NLS
 OPTIONS_SUB=	yes
 
-NLS_USES=	gettext
+NLS_USES=		gettext
 NLS_CONFIGURE_ENABLE=	nls
 
 USE_GITHUB=	yes
@@ -43,9 +43,9 @@ PLIST_FILES=	bin/coyim \
 GTK_VERSION=	"$$(pkg-config --modversion gtk+-3.0 | ${TR} . _ | cut -d '_' -f 1-2)"
 GTK_BUILD_TAG=	gtk_${GTK_VERSION}
 
-COYIM_ICON=		coyim.png
-COYIM_ICON_SRC=		${WRKSRC}/build/mac-bundle/coy.iconset/icon_32x32@2x.png
-COYIM_DESKTOP=		${WRKSRC}/build/coyim.desktop
+COYIM_ICON=	coyim.png
+COYIM_ICON_SRC=	${WRKSRC}/build/mac-bundle/coy.iconset/icon_32x32@2x.png
+COYIM_DESKTOP=	${WRKSRC}/build/coyim.desktop
 
 INSTALLATION_DIRS+=	share/applications share/pixmaps
 
