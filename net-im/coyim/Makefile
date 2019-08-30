@@ -1,4 +1,4 @@
-# $FreeBSD: head/net-im/coyim/Makefile 505321 2019-06-29 03:51:13Z tobik $
+# $FreeBSD: head/net-im/coyim/Makefile 510300 2019-08-30 22:07:27Z tobik $
 
 PORTNAME=	coyim
 DISTVERSIONPREFIX=	v
@@ -15,13 +15,9 @@ LICENSE_FILE=	${WRKSRC}/LICENSE
 LIB_DEPENDS=	libfontconfig.so:x11-fonts/fontconfig \
 		libfreetype.so:print/freetype2
 
-USES=		gnome go pkgconfig shebangfix
+USES=		gnome go pkgconfig
 
 USE_GNOME=	atk cairo gdkpixbuf2 glib20 gtk30 pango
-
-sh_OLD_CMD=	"/usr/bin/env bash"
-sh_CMD=		${SH}
-SHEBANG_FILES=	gen_version_file.sh
 
 OPTIONS_DEFINE=	NLS
 OPTIONS_SUB=	yes
@@ -32,6 +28,8 @@ NLS_CONFIGURE_ENABLE=	nls
 USE_GITHUB=	yes
 GH_ACCOUNT=	coyim
 GH_SUBDIR=	src/github.com/${GH_ACCOUNT}/${PORTNAME}
+
+GO_BUILDFLAGS=	-tags ${GTK_BUILD_TAG}
 
 SUB_LIST=	PORTNAME=${PORTNAME}
 
@@ -48,21 +46,17 @@ COYIM_DESKTOP=	${WRKSRC}/build/coyim.desktop
 
 INSTALLATION_DIRS+=	share/applications share/pixmaps
 
-do-build:
-	cd ${WRKSRC}/${GH_SUBDIR} && \
-		${SH} ./gen_version_file.sh ${DISTVERSIONPREFIX}${DISTVERSION} && \
-		${SETENV} ${MAKE_ENV} GOPATH=${WRKSRC} \
-		go build -tags ${GTK_BUILD_TAG} -o ${PORTNAME}
+pre-build:
+	cd ${WRKSRC} && ${SH} ./gen_version_file.sh ${DISTVERSIONPREFIX}${DISTVERSION}
 
 post-build:
 	@${REINPLACE_CMD} -e '/^#/d' \
 		-e '/^$$/d' \
 		${COYIM_DESKTOP}
-	${ECHO} "Exec=${PREFIX}/bin/coyim" >> ${COYIM_DESKTOP}
-	${ECHO} "Icon=${COYIM_ICON}" >> ${COYIM_DESKTOP}
+	${ECHO_CMD} "Exec=${PREFIX}/bin/coyim" >> ${COYIM_DESKTOP}
+	${ECHO_CMD} "Icon=${COYIM_ICON}" >> ${COYIM_DESKTOP}
 
-do-install:
-	${INSTALL_PROGRAM} ${WRKSRC}/${PORTNAME} ${STAGEDIR}${PREFIX}/bin
+post-install:
 	${INSTALL_DATA} ${COYIM_DESKTOP} ${STAGEDIR}${PREFIX}/share/applications/
 	${INSTALL_DATA} ${COYIM_ICON_SRC} ${STAGEDIR}${PREFIX}/share/pixmaps/${COYIM_ICON}
 
