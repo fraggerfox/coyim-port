@@ -1,9 +1,9 @@
-# $FreeBSD: head/net-im/coyim/Makefile 514717 2019-10-18 13:07:37Z tobik $
+# $FreeBSD: head/net-im/coyim/Makefile 517745 2019-11-16 12:52:39Z dmgk $
 
 PORTNAME=	coyim
 DISTVERSIONPREFIX=	v
 DISTVERSION=	0.3.11
-PORTREVISION=	2
+PORTREVISION=	3
 CATEGORIES=	net-im
 
 MAINTAINER=	fox@FreeBSD.org
